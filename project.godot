@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="tebang"
-run/main_scene="uid://cb7uv2lbl1bxl"
+run/main_scene="uid://oqilufppyleg"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
