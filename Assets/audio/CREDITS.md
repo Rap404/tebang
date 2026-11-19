@@ -10,6 +10,7 @@ Lisensi sumber: Creative Commons Zero (CC0). Berkas dipilih dan dinamai ulang.
 | AU07_Ambil_Omprok.ogg | cloth2.ogg | https://opengameart.org/content/50-rpg-sound-effects |
 | AU04_Napas.wav | 767046__thabzmalik__young-males-heavy-breathing.wav | https://freesound.org/s/767046/ |
 | AU07_Penyerahan.ogg | confirmation_001.ogg | https://opengameart.org/content/interface-sounds |
+| AU08_Kapak.ogg | chop.ogg (Kenney Vleugels, CC0) | https://opengameart.org/content/50-rpg-sound-effects |
 | AU09_Klik_UI.ogg | click_001.ogg | https://opengameart.org/content/interface-sounds |
 | AU03_Dengung_Hutan.wav | 266414__ceich93__drone_bowedcybmal.wav | https://freesound.org/s/266414/ |
 | AU01_Suasana_Pagi.wav | 476034__sheyvan__ambience-morning-birds.wav | https://freesound.org/s/476034/ |
