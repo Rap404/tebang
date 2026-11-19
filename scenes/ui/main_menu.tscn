@@ -75,6 +75,7 @@ grow_vertical = 1
 [node name="CreaditMenu" parent="." unique_id=815956935 instance=ExtResource("3_1g8jr")]
 visible = false
 layout_mode = 1
+script = ExtResource("1_sl1te")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnPlay" to="." method="_on_mulai_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnSetting" to="." method="_on_pengaturan_button_pressed"]
