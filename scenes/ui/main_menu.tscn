@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://oqilufppyleg"]
 
 [ext_resource type="Script" uid="uid://b4j2fimkxhq8w" path="res://scripts/main_menu.gd" id="1_sl1te"]
+[ext_resource type="PackedScene" uid="uid://dr4hu2vt4wvov" path="res://scenes/ui/setting_menu.tscn" id="2_fe2o3"]
+[ext_resource type="PackedScene" uid="uid://db5h4r0kyrdht" path="res://scenes/ui/creadits_menu.tscn" id="3_1g8jr"]
 
 [node name="MainMenu" type="Control" unique_id=1334889878]
 layout_mode = 3
@@ -61,5 +63,20 @@ layout_mode = 2
 text = "Keluar
 "
 
+[node name="SettingMenu" parent="." unique_id=512343320 instance=ExtResource("2_fe2o3")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CreaditMenu" parent="." unique_id=815956935 instance=ExtResource("3_1g8jr")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnPlay" to="." method="_on_mulai_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnSetting" to="." method="_on_pengaturan_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnCreadits" to="." method="_on_creadit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnExit" to="." method="_on_keluar_button_pressed"]

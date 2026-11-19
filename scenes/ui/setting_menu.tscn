@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dr4hu2vt4wvov"]
+
+[ext_resource type="Script" uid="uid://dfov3774jiob2" path="res://scripts/setting_menu.gd" id="1_xbl1u"]
+
+[node name="SettingMenu" type="Control" unique_id=1334889878]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xbl1u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1953829156]
+layout_mode = 0
+offset_right = 1148.0
+offset_bottom = 651.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=807313989]
+layout_mode = 0
+offset_right = 1147.0
+offset_bottom = 652.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1120922441]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=769828807]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Setting"
+vertical_alignment = 3
+
+[node name="desc" type="Label" parent="MarginContainer/VBoxContainer" unique_id=383363174]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Volume utama"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2021465435]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=13211438]
+custom_minimum_size = Vector2(800, 36)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.7
+
+[node name="persenLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=5150641]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "70%"
+
+[node name="btnBack" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1991127631]
+layout_mode = 2
+text = "Kembali"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="_update_label"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnBack" to="." method="_on_keluar_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnBack" to="." method="_on_btn_back_pressed"]
