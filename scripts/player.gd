@@ -4,18 +4,22 @@ extends CharacterBody2D
 @onready var swing_sword: AudioStreamPlayer2D = $swingSword
 @onready var hitbox: Area2D = $Hitbox
 
-const SPEED = 300.0
+const SPEED = 200.0
+const SPRINT_SPEED = 400.0 # Kecepatan saat sprint (sesuaikan kebutuhan)
 
 var last_direction: Vector2 = Vector2.RIGHT
 var is_attacking: bool = false
 var hitbox_offset: Vector2
+var strength: int = 20
 
 func _ready() -> void:
 	
 	#Initialize hitbox offset
 	hitbox_offset = hitbox.position
+	hitbox.monitoring = false
 
 func _physics_process(_delta: float) -> void:
+	
 	
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		attack()
@@ -33,18 +37,17 @@ func _physics_process(_delta: float) -> void:
 #-------------------------------------
 
 func process_movement() -> void:
-	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
+	# Cek apakah tombol sprint sedang ditahan
+	var current_speed = SPRINT_SPEED if Input.is_action_pressed("sprint") else SPEED
+	
 	if direction != Vector2.ZERO:
-		velocity = direction * SPEED
+		velocity = direction * current_speed
 		last_direction = direction
 		update_hitbox()
 	else:
 		velocity = Vector2.ZERO
-	
 
 func process_animation() -> void:
 	if is_attacking:
@@ -69,11 +72,13 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 
 func attack() -> void:
 	is_attacking = true
+	hitbox.monitoring = true
 	swing_sword.play()
 	play_animation("attack", last_direction)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	hitbox.monitoring = false
 	if is_attacking:
 		is_attacking = false
 		
@@ -95,3 +100,9 @@ func update_hitbox() -> void:
 			hitbox.position = Vector2(y, -x)
 		Vector2.DOWN:
 			hitbox.position = Vector2(-y, x)
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if is_attacking and body.name.begins_with("Slime"):
+		print("Hit!")
+		body.take_damage(strength, position)
